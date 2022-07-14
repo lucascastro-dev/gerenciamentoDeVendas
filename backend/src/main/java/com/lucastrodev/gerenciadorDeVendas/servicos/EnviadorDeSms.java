@@ -1,6 +1,5 @@
 package com.lucastrodev.gerenciadorDeVendas.servicos;
 
-import com.lucastrodev.gerenciadorDeVendas.entidades.Venda;
 import com.lucastrodev.gerenciadorDeVendas.repositorios.VendaRepositorio;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
@@ -31,17 +30,16 @@ public class EnviadorDeSms {
 
         var venda = vendaRepositorio.findById(idVenda).get();
         var dataEmString = venda.getDataDaVenda().getMonthValue() + "/" + venda.getDataDaVenda().getYear();
-
-        String mensagemParaEnviar = "O vendedor " + venda.getNomeVendedor() + " foi destaque de vendas em " + dataEmString +
+        var mensagemParaEnviar = "O vendedor " + venda.getNomeVendedor() + " foi destaque de vendas em " + dataEmString +
                 " com um total de R$ " + String.format("%.2f", venda.getTotalDaVenda());
 
         Twilio.init(twilioSid, twilioKey);
 
-        PhoneNumber to = new PhoneNumber(twilioPhoneTo);
-        PhoneNumber from = new PhoneNumber(twilioPhoneFrom);
+        var mensagemDe = new PhoneNumber(twilioPhoneTo);
+        var mensagemPara = new PhoneNumber(twilioPhoneFrom);
 
-        Message message = Message.creator(to, from, mensagemParaEnviar).create();
+        var mensagem = Message.creator(mensagemDe, mensagemPara, mensagemParaEnviar).create();
 
-        System.out.println(message.getSid());
+        System.out.println(mensagem.getSid());
     }
 }
