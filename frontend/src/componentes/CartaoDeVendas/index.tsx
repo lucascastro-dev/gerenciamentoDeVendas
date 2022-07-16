@@ -15,10 +15,14 @@ function CartaoDeVendas() {
 	const [vendas, definirVendas] = useState<Venda[]>([])
 
 	useEffect(() => {
-		axios.get(`${BASE_URL}/vendas`).then(respostaDaRequisicao => {
+
+		const dataMinima = minDate.toISOString().slice(0, 10)
+		const dataMaxima = maxDate.toISOString().slice(0, 10)
+
+		axios.get(`${BASE_URL}/vendas?minDate=${dataMinima}&maxDate=${dataMaxima}`).then(respostaDaRequisicao => {
 			definirVendas(respostaDaRequisicao.data.content)
 		})
-	}, [])
+	}, [minDate, maxDate])
 
 	return (
 		<div className="dsmeta-card">
