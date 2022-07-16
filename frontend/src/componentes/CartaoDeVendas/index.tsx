@@ -11,11 +11,9 @@ function CartaoDeVendas() {
 
 	const [minDate, setMinDate] = useState(new Date(new Date().setDate(new Date().getDate() - 90)))
 	const [maxDate, setMaxDate] = useState(new Date)
-
 	const [vendas, definirVendas] = useState<Venda[]>([])
 
 	useEffect(() => {
-
 		const dataMinima = minDate.toISOString().slice(0, 10)
 		const dataMaxima = maxDate.toISOString().slice(0, 10)
 
@@ -72,7 +70,7 @@ function CartaoDeVendas() {
 										<td>R$ {venda.totalDaVenda.toFixed(2)}</td>
 										<td>
 											<div className="dsmeta-red-btn-container">
-												<BotaoNotificacao />
+												<BotaoNotificacao vendaId={venda.id} />
 											</div>
 										</td>
 									</tr>
