@@ -9,7 +9,7 @@
 
 body,
 html {
-	background-color: #000;
+	background: linear-gradient(320deg, rgb(242, 113, 33), rgb(233, 64, 87), rgb(138, 35, 135));
 	color: #fff;
 }
 
@@ -27,5 +27,5 @@ a:visited {
 }
 
 #sales {
-	padding: 40px 10px;
+	padding: 40px 10px 230px;
 }

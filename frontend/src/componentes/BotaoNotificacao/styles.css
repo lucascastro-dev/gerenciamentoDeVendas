@@ -1,7 +1,7 @@
 .dsmeta-red-btn {
 	height: 45px;
 	width: 45px;
-	background: rgba(255, 107, 114, 0.1);
+	background-color:rgba(255, 255, 255, 0.6);
 	border: 1px solid #ff6b72;
 	border-radius: 10px;
 	display: flex;

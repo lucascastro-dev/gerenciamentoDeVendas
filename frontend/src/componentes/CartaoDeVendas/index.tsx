@@ -62,7 +62,7 @@ function CartaoDeVendas() {
 							vendas.map(venda => {
 								return (
 									<tr key={venda.id}>
-										<td className="show992"># {venda.id}</td>
+										<td className="show992">{venda.id}</td>
 										<td className="show576">{new Date(venda.dataDaVenda).toLocaleDateString()}</td>
 										<td>{venda.nomeVendedor}</td>
 										<td className="show992">{venda.numeroDeVisitas}</td>
